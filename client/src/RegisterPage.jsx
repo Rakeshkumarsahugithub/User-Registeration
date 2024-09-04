@@ -12,7 +12,7 @@ const RegisterPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`${window.location.origin}/register`, { name, email, password })
+        axios.post('https://mern-api-lyart.vercel.app/register', { name, email, password })
             .then(res => {
                 //console.log(res.data);
                 navigate('/login');
