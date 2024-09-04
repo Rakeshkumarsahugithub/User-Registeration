@@ -20,7 +20,7 @@ const LoginPage = () => {
             return;
         }
 
-        axios.post(`${window.location.origin}/login`, { email, password })
+        axios.post('https://mern-api-lyart.vercel.app/login', { email, password })
             .then(res => {
                 if (res.data.Login) { // Use correct key from response
                     navigate('/home');
