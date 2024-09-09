@@ -19,7 +19,6 @@ dotenv.config();
 //     origin: ["http://localhost:5173", "https://user-registration-f71i.onrender.com"],
 //     credentials: true
 // }));
-
 const app = express();
 
 // Middleware to parse JSON and cookies
