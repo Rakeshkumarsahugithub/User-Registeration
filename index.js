@@ -12,41 +12,36 @@ dotenv.config();
 
 
 
-// const app = express();
-// app.use(express.json());
-// app.use(cookieParser());
-// app.use(cors({
-//     origin: ["http://localhost:5173", "https://user-registration-f71i.onrender.com"],
-//     credentials: true
-// }));
 const app = express();
-
-// Middleware to parse JSON and cookies
 app.use(express.json());
 app.use(cookieParser());
-
-// Dynamic CORS configuration
-const allowedOrigins = "https://user-registration-f71i.onrender.com";
 app.use(cors({
-    origin: function (origin, callback) {
-        // Allow requests with no origin (like Postman) or those in the allowed list
-        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
+    origin: "http://localhost:5173",
     credentials: true
 }));
+// const app = express();
+
+// // Middleware to parse JSON and cookies
+// app.use(express.json());
+// app.use(cookieParser());
+
+// // Dynamic CORS configuration
+// const allowedOrigins = "https://user-registration-f71i.onrender.com";
+// app.use(cors({
+//     origin: function (origin, callback) {
+//         // Allow requests with no origin (like Postman) or those in the allowed list
+//         if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error('Not allowed by CORS'));
+//         }
+//     },
+//     credentials: true
+// }));
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
-const mongoURI = 'mongodb://127.0.0.1:27017/user'; // Example URI, replace with your actual MongoDB URI
-
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("MongoDB connected successfully"))
-    .catch(err => console.error("MongoDB connection error:", err));
+mongoose.connect = 'mongodb://127.0.0.1:27017/user'; 
 
 app.use(express.static(path.resolve(__dirname, "client", "build")));
 
