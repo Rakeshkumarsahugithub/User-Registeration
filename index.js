@@ -12,11 +12,31 @@ dotenv.config();
 
 
 
+// const app = express();
+// app.use(express.json());
+// app.use(cookieParser());
+// app.use(cors({
+//     origin: ["http://localhost:5173", "https://user-registration-f71i.onrender.com"],
+//     credentials: true
+// }));
+
 const app = express();
+
+// Middleware to parse JSON and cookies
 app.use(express.json());
 app.use(cookieParser());
+
+// Dynamic CORS configuration
+const allowedOrigins = ["http://localhost:5173", "https://user-registration-f71i.onrender.com"];
 app.use(cors({
-    origin: ["http://localhost:5173", "https://user-registration-f71i.onrender.com"],
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like Postman) or those in the allowed list
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true
 }));
 
