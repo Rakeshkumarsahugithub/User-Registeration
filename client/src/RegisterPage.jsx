@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; 
 
 
-
+const baseurl = "https://user-registration-f71i.onrender.com";
 const RegisterPage = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -12,7 +12,7 @@ const RegisterPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://mern-api-lyart.vercel.app/register', { name, email, password })
+        axios.post(`${baseurl}/register`, { name, email, password })
             .then(res => {
                 //console.log(res.data);
                 navigate('/login');
