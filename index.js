@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Dynamic CORS configuration
-const allowedOrigins = ["http://localhost:5173", "https://user-registration-f71i.onrender.com"];
+const allowedOrigins = "https://user-registration-f71i.onrender.com";
 app.use(cors({
     origin: function (origin, callback) {
         // Allow requests with no origin (like Postman) or those in the allowed list
