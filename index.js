@@ -16,13 +16,13 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://user-registlog.vercel.app/",
+    origin: ["http://localhost:5173", "https://user-registration-f71i.onrender.com"],
     credentials: true
 }));
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-mongoose.connect('mongodb://localhost:27017/user')
+
 const mongoURI = process.env.MONGO_URI; // Use environment variable for MongoDB URI
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB connected successfully"))
