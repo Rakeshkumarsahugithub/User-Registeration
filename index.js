@@ -22,7 +22,7 @@ app.use(cors({
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
+mongoose.connect('mongodb://localhost:27017/user')
 const mongoURI = process.env.MONGO_URI; // Use environment variable for MongoDB URI
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB connected successfully"))
