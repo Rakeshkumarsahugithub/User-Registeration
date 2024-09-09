@@ -42,7 +42,7 @@ app.use(cors({
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const mongoURI = 'mongodb://localhost:27017/user'; // Example URI, replace with your actual MongoDB URI
+const mongoURI = 'mongodb://127.0.0.1:27017/user'; // Example URI, replace with your actual MongoDB URI
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB connected successfully"))
