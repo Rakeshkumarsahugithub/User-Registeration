@@ -20,7 +20,7 @@ app.use(cors({
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-mongoose.connect('mongodb://localhost:27017/user');
+mongoose.connect('mongodb://127.0.0.1:27017/user');
 app.use(express.static(path.resolve(__dirname, "client", "build")));
 
 app.get('/', (req, res) => {
